@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IMPULSE — Mechanical Engineering Magazine, KGEC</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="effects.css" />
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="preloading">
+
+  <!-- ═══ PRELOADER ═══ -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="gears-container">
+        <svg class="gear-svg gear-big" viewBox="0 0 92 92" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="gBigGrad" cx="50%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#a8d4ff"/>
+              <stop offset="60%" stop-color="#4F9EFF"/>
+              <stop offset="100%" stop-color="#1a3a6e"/>
+            </radialGradient>
+            <filter id="gBigGlow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path filter="url(#gBigGlow)" fill="url(#gBigGrad)" d="M 39.08,18.92 L 41.99,18.34 L 42.28,9.24 L 49.72,9.24 L 50.01,18.34 L 52.92,18.92 L 53.55,19.09 L 56.36,20.04 L 61.16,12.30 L 67.60,16.02 L 63.30,24.05 L 65.53,26.00 L 66.00,26.47 L 67.95,28.70 L 75.98,24.40 L 79.70,30.84 L 71.96,35.64 L 72.91,38.45 L 73.08,39.08 L 73.66,41.99 L 82.76,42.28 L 82.76,49.72 L 73.66,50.01 L 73.08,52.92 L 72.91,53.55 L 71.96,56.36 L 79.70,61.16 L 75.98,67.60 L 67.95,63.30 L 66.00,65.53 L 65.53,66.00 L 63.30,67.95 L 67.60,75.98 L 61.16,79.70 L 56.36,71.96 L 53.55,72.91 L 52.92,73.08 L 50.01,73.66 L 49.72,82.76 L 42.28,82.76 L 41.99,73.66 L 39.08,73.08 L 38.45,72.91 L 35.64,71.96 L 30.84,79.70 L 24.40,75.98 L 28.70,67.95 L 26.47,66.00 L 26.00,65.53 L 24.05,63.30 L 16.02,67.60 L 12.30,61.16 L 20.04,56.36 L 19.09,53.55 L 18.92,52.92 L 18.34,50.01 L 9.24,49.72 L 9.24,42.28 L 18.34,41.99 L 18.92,39.08 L 19.09,38.45 L 20.04,35.64 L 12.30,30.84 L 16.02,24.40 L 24.05,28.70 L 26.00,26.47 L 26.47,26.00 L 28.70,24.05 L 24.40,16.02 L 30.84,12.30 L 35.64,20.04 L 38.45,19.09 Z"/>
+          <circle cx="46" cy="46" r="18" fill="#050810" stroke="#4F9EFF" stroke-width="2"/>
+          <circle cx="46" cy="46" r="7" fill="#020508" stroke="#1a3a6e" stroke-width="1.5"/>
+          <line x1="28" y1="46" x2="64" y2="46" stroke="#1a3a6e" stroke-width="2" stroke-linecap="round"/>
+          <line x1="46" y1="28" x2="46" y2="64" stroke="#1a3a6e" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="gear-svg gear-small" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="gSmGrad" cx="50%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#ffe8a8"/>
+              <stop offset="55%" stop-color="#C9A84C"/>
+              <stop offset="100%" stop-color="#6b4e10"/>
+            </radialGradient>
+            <filter id="gSmGlow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path filter="url(#gSmGlow)" fill="url(#gSmGrad)" d="M 24.10,13.46 L 26.96,12.59 L 27.11,5.44 L 34.89,5.44 L 35.04,12.59 L 37.90,13.46 L 38.52,13.72 L 41.16,15.12 L 46.32,10.18 L 51.82,15.68 L 46.88,20.84 L 48.28,23.48 L 48.54,24.10 L 49.41,26.96 L 56.56,27.11 L 56.56,34.89 L 49.41,35.04 L 48.54,37.90 L 48.28,38.52 L 46.88,41.16 L 51.82,46.32 L 46.32,51.82 L 41.16,46.88 L 38.52,48.28 L 37.90,48.54 L 35.04,49.41 L 34.89,56.56 L 27.11,56.56 L 26.96,49.41 L 24.10,48.54 L 23.48,48.28 L 20.84,46.88 L 15.68,51.82 L 10.18,46.32 L 15.12,41.16 L 13.72,38.52 L 13.46,37.90 L 12.59,35.04 L 5.44,34.89 L 5.44,27.11 L 12.59,26.96 L 13.46,24.10 L 13.72,23.48 L 15.12,20.84 L 10.18,15.68 L 15.68,10.18 L 20.84,15.12 L 23.48,13.72 Z"/>
+          <circle cx="31" cy="31" r="12" fill="#050810" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="31" cy="31" r="4.5" fill="#020508" stroke="#6b4e10" stroke-width="1.2"/>
+          <line x1="19" y1="31" x2="43" y2="31" stroke="#6b4e10" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="31" y1="19" x2="31" y2="43" stroke="#6b4e10" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div id="preloader-title">IMPULSE</div>
+      <div id="preloader-sub">Department of Mechanical Engineering · KGEC · 2026</div>
+      <div class="preloader-progress"><div id="preloader-bar"></div></div>
+    </div>
+  </div>
+
+  <div class="zap-flash" id="zapFlash"></div>
+  <canvas id="cursor-trail"></canvas>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo-container">
+        <img src="kgec-logo.png" alt="KGEC Logo" class="nav-college-logo" onerror="this.style.display='none'">
+        <div class="nav-logo">
+          <span class="nav-logo-text">IMPULSE</span>
+          <span class="nav-logo-sub">ME · KGEC · '26</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#spirit">About</a></li>
+        <li><a href="#messages">Faculty</a></li>
+        <li><a href="javascript:void(0)" onclick="openFacultyTab()" class="nav-special-link">Directory</a></li>
+        <li><a href="#flipbook" class="nav-cta">Read Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#spirit">About</a>
+      <a href="#messages">Faculty</a>
+      <a href="javascript:void(0)" onclick="openFacultyTab()">Directory</a>
+      <a href="#flipbook">Read Now</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="home" class="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-grid-lines"></div>
+
+    <div class="hero-layout">
+      <div class="hero-content">
+        <p class="hero-eyebrow">
+          <span class="eyebrow-dot"></span>
+          Dept. of Mechanical Engineering · KGEC · 2026
+        </p>
+        <div class="hero-title-wrap">
+          <h1 class="hero-title">IMPULSE</h1>
+        </div>
+        <p class="hero-tagline">NO TECH WITHOUT MECH</p>
+        <p class="hero-desc">More than a magazine — a celebration of the vibrant spirit of the Department of Mechanical Engineering. Achievements, innovations, experiences, creativity, and aspirations, all in one edition.</p>
+        <div class="hero-actions">
+          <a href="#flipbook" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Read the Magazine
+          </a>
+          <a href="#spirit" class="btn-ghost">Explore More</a>
+        </div>
+
+        <!-- Bento stats row -->
+        <div class="hero-stats-row">
+          <div class="stat-chip glass-chip">
+            <span class="stat-num">2026</span>
+            <span class="stat-label">Edition</span>
+          </div>
+          <div class="stat-chip glass-chip">
+            <span class="stat-num">ME</span>
+            <span class="stat-label">Department</span>
+          </div>
+          <div class="stat-chip glass-chip">
+            <span class="stat-num">KGEC</span>
+            <span class="stat-label">College</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating cover card -->
+      <div class="hero-cover-art" id="coverArt">
+        <div class="cover-glass-frame">
+          <a href="#flipbook" class="cover-card-link" title="Open Magazine">
+            <div class="cover-card" id="coverCard">
+              <div class="cover-img-wrap">
+                <img
+                  src="cover-page.jpg"
+                  alt="IMPULSE Magazine Cover"
+                  class="cover-real-img"
+                  id="coverImg"
+                  onload="this.style.opacity='1';"
+                  onerror="this.style.display='none'; document.getElementById('coverPlaceholder').style.display='flex';"
+                />
+                <div class="cover-placeholder" id="coverPlaceholder" style="display:none;">
+                  <p class="cover-mock-dept">DEPT. OF MECHANICAL<br>ENGINEERING</p>
+                  <h2 class="cover-mock-title">IMPULSE</h2>
+                  <p class="cover-mock-year">'26</p>
+                  <div class="cover-mock-gear">⚙</div>
+                </div>
+              </div>
+              <div class="cover-open-hint"><span>📖 Open Magazine</span></div>
+            </div>
+          </a>
+          <div class="cover-frame-label">IMPULSE '26</div>
+        </div>
+        <div class="cover-shadow-blob"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ SPIRIT — BENTO GRID ═══ -->
+  <section id="spirit" class="spirit">
+    <div class="section-container">
+      <div class="section-eyebrow">What We Are</div>
+      <h2 class="section-title">The Spirit of <em>Impulse</em></h2>
+
+      <div class="bento-grid">
+        <!-- Large card -->
+        <div class="bento-card bento-large glass-card">
+          <div class="bento-icon-bg">⚙️</div>
+          <div class="bento-content">
+            <span class="bento-tag">Technical</span>
+            <h3>Technical Evolution</h3>
+            <p>IMPULSE serves as a timeline capturing our shift toward modern industrial frontiers — reflecting student contributions in computational design, automation, thermal labs, and advanced automotive builds.</p>
+          </div>
+          <div class="bento-glow bento-glow-blue"></div>
+        </div>
+
+        <!-- Tall card -->
+        <div class="bento-card bento-tall glass-card">
+          <div class="bento-icon-bg">🎨</div>
+          <div class="bento-content">
+            <span class="bento-tag">Creative</span>
+            <h3>Creative Impulse</h3>
+            <p>Beyond complex equations and machine blueprints lies a vibrant stream of literature, fine art, photography, and personal reflections that bind the batch together as a family.</p>
+          </div>
+          <div class="bento-glow bento-glow-gold"></div>
+        </div>
+
+        <!-- Wide card -->
+        <div class="bento-card bento-wide glass-card">
+          <div class="bento-icon-bg">🏆</div>
+          <div class="bento-content">
+            <span class="bento-tag">Legacy</span>
+            <h3>Legacy & Achievement</h3>
+            <p>From groundbreaking projects to campus triumphs, IMPULSE documents the milestones that define our batch — a living record for future generations to look back on.</p>
+          </div>
+          <div class="bento-glow bento-glow-purple"></div>
+        </div>
+
+        <!-- Small accent card -->
+        <div class="bento-card bento-accent glass-card">
+          <div class="bento-accent-inner">
+            <span class="bento-accent-word">MECH</span>
+            <span class="bento-accent-sub">Since 1995</span>
+          </div>
+          <div class="bento-glow bento-glow-blue"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MESSAGES ═══ -->
+  <section id="messages" class="messages">
+    <div class="section-container">
+      <div class="section-eyebrow">From the Desk</div>
+      <h2 class="section-title">Faculty Messages</h2>
+      <div class="messages-grid">
+
+        <div class="message-card glass-card">
+          <div class="message-avatar-wrap">
+            <img src="td-sir.jpg" alt="Dr. Tridibesh Das" class="faculty-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="message-avatar" style="display:none;"><span>TD</span></div>
+          </div>
+          <div class="message-body">
+            <span class="message-role">Head of Department</span>
+            <h3 class="message-name">Dr. Tridibesh Das</h3>
+            <blockquote>"Engineering is about cultivating an adaptive mindset to solve complex constraints. This publication highlights the commendable tenacity of our students, balancing dense experimental research with expressive creativity."</blockquote>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+        <div class="message-card glass-card">
+          <div class="message-avatar-wrap">
+            <img src="sd-sir.jpg" alt="Dr. Santanu Das" class="faculty-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="message-avatar" style="display:none;"><span>SD</span></div>
+          </div>
+          <div class="message-body">
+            <span class="message-role">Professor & Registrar</span>
+            <h3 class="message-name">Dr. Santanu Das</h3>
+            <blockquote>"This publication legacy remains a testament to our excellence and the deep practical evolution of our engineering students across generations."</blockquote>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+      </div>
+
+      <div class="view-all-wrap">
+        <button class="btn-outline" onclick="openFacultyTab()">
+          View Full Faculty Directory
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FACULTY OVERLAY ═══ -->
+  <div id="facultyOverlayTab" class="faculty-overlay-tab" onclick="closeFacultyTab()">
+    <div class="overlay-tab-content glass-overlay" onclick="event.stopPropagation()">
+      <button class="overlay-close" onclick="closeFacultyTab()">&times;</button>
+      <div class="overlay-header">
+        <span class="section-eyebrow">KGEC Mechanical Department</span>
+        <h2 class="overlay-title">Faculty Directory</h2>
+        <div class="overlay-header-line"></div>
+      </div>
+      <div class="overlay-grid-scroller">
+
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="td-sir.jpg" alt="Dr. Tridibesh Das" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>TD</span></div></div>
+          <div class="dir-info"><span class="message-role">Head of Department</span><h3>Dr. Tridibesh Das</h3><p class="dir-quote">"Engineering is about cultivating an adaptive mindset to solve complex constraints."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="sd-sir.jpg" alt="Dr. Santanu Das" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>SD</span></div></div>
+          <div class="dir-info"><span class="message-role">Professor & Registrar</span><h3>Dr. Santanu Das</h3><p class="dir-quote">"This publication legacy remains a testament to our excellence."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="debojyoti-mitra.jpg" alt="Dr. Debojyoti Mitra" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>DM</span></div></div>
+          <div class="dir-info"><span class="message-role">Professor & Former HOD</span><h3>Dr. Debojyoti Mitra</h3><p class="dir-quote">"Watching the progression of our students as they blend standard mechanical foundations with modern computing paradigms is incredibly rewarding."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="nripen-mondal.jpg" alt="Dr. Nripen Mondal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>NM</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Dr. Nripen Mondal</h3><p class="dir-quote">"True learning shines brightest when students take principles out of the lecture halls and turn them into tangible ideas."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="arijit-kundu.jpg" alt="Dr. Arijit Kundu" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>AK</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Dr. Arijit Kundu</h3><p class="dir-quote">"The synthesis of structural integrity and aesthetic expression shows that engineering and art are truly two sides of the same coin."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="debasish-biswas.jpg" alt="Dr. Debasish Biswas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>DB</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Dr. Debasish Biswas</h3><p class="dir-quote">"Excellence isn't a static landmark but a dynamic target. The research reflections inside manifest a standard of continuous evolution."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="sirsendu-mahata.jpg" alt="Dr. Sirsendu Mahata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>SM</span></div></div>
+          <div class="dir-info"><span class="message-role">Associate Professor</span><h3>Dr. Sirsendu Mahata</h3><p class="dir-quote">"Computational modeling and numerical precision drive the state-of-the-art today."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="sibsankar-dasmahapatra.jpg" alt="Dr. Sibsankar Dasmahapatra" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>SD</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Dr. Sibsankar Dasmahapatra</h3><p class="dir-quote">"Manufacturing paradigms are changing fast. Documenting milestones provides a vital map for the junior batches charting their courses."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="samir-chakravarti.jpg" alt="Dr. Samir Chakravarti" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>SC</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Dr. Samir Chakravarti</h3><p class="dir-quote">"The foundation of thermodynamics and machine kinetics remains timeless. Seeing students apply these bedrock pillars is brilliant."</p></div>
+        </div>
+        <div class="directory-row glass-row">
+          <div class="dir-avatar-frame"><img src="bidhan-biswas.jpg" alt="Mr. Bidhan Chandra Biswas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="dir-avatar-fallback"><span>BB</span></div></div>
+          <div class="dir-info"><span class="message-role">Assistant Professor</span><h3>Mr. Bidhan Chandra Biswas</h3><p class="dir-quote">"A great engineer operates with systematic accuracy and deep focus. This complete volume echoes that structured effort."</p></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FLIPBOOK ═══ -->
+  <section id="flipbook" class="flipbook-section">
+    <div class="section-container">
+      <div class="section-eyebrow">Digital Edition</div>
+      <h2 class="section-title">Read the Magazine</h2>
+      <div class="download-wrap">
+        <a href="ME-MAGAZINE.pdf" download class="btn-download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      </div>
+
+      <div class="flipbook-upload-zone" id="uploadZone">
+        <div class="upload-icon">📖</div>
+        <h3>Loading Magazine…</h3>
+        <p>If the magazine doesn't load automatically, upload the PDF below.</p>
+        <input type="file" id="pdfInput" accept=".pdf" hidden />
+        <button class="btn-primary" onclick="document.getElementById('pdfInput').click()">Choose PDF</button>
+      </div>
+
+      <div class="flipbook-viewer glass-card" id="flipbookViewer" style="display:none;">
+        <div class="flipbook-toolbar">
+          <div class="toolbar-left">
+            <button class="tool-btn" id="prevBtn">← Prev</button>
+            <span class="page-indicator"><span id="currentPage">1</span> / <span id="totalPages">?</span></span>
+            <button class="tool-btn" id="nextBtn">Next →</button>
+          </div>
+          <div class="toolbar-right">
+            <button class="tool-btn" id="zoomOut">−</button>
+            <button class="tool-btn" id="zoomIn">+</button>
+            <button class="tool-btn" id="fullscreenBtn">⛶</button>
+          </div>
+        </div>
+        <div class="flipbook-stage" id="flipbookStage">
+          <div id="magazine-3d-book" style="opacity: 0; transition: opacity 0.4s ease;"></div>
+        </div>
+        <div class="flipbook-thumbnails" id="thumbnailStrip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-title">IMPULSE</span>
+        <span class="footer-sub">Department of Mechanical Engineering</span>
+        <span class="footer-sub">Kalyani Government Engineering College</span>
+      </div>
+      <div class="footer-copy">
+        © 2026 Department of Mechanical Engineering, KGEC. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="preloader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

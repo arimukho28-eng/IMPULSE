@@ -1,0 +1,161 @@
+/* ═══════════════════════════════════════════════════
+   IMPULSE — Effects CSS (Glassmorphism Redesign)
+   Preloader · Scroll Reveal · Hover · Cursor
+   ═══════════════════════════════════════════════════ */
+
+/* ── Preloader ──────────────────────────────────── */
+body.preloading { overflow: hidden; }
+
+#preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #050810;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  pointer-events: all;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.preloader-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+}
+
+/* ── ZAP flash ─────────────────────────────────── */
+.zap-flash {
+  position: fixed; inset: 0; z-index: 10000;
+  background: radial-gradient(ellipse at center, rgba(79,158,255,0.7) 0%, rgba(30,60,200,0.3) 40%, transparent 70%);
+  opacity: 0; pointer-events: none; transition: opacity 0.08s ease;
+}
+.zap-flash.active { opacity: 1; }
+
+#preloader-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(5rem, 16vw, 13rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fff;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: linear-gradient(135deg, #ffffff 0%, #a8d4ff 40%, #4F9EFF 70%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: metalSheen 2.5s linear infinite;
+  will-change: opacity, transform;
+}
+#preloader-title.revealed { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+
+@keyframes metalSheen {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+#preloader-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(79,158,255,0.75);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.45s ease 0.12s, transform 0.45s ease 0.12s;
+}
+#preloader-sub.revealed { opacity: 1 !important; transform: translateY(0) !important; }
+
+.preloader-progress {
+  width: 200px; height: 2px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px; overflow: hidden;
+  margin-top: 10px;
+  opacity: 0; transition: opacity 0.3s ease 0.2s;
+}
+.preloader-progress.revealed { opacity: 1; }
+#preloader-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #4F9EFF, #a8d4ff, #4F9EFF);
+  background-size: 200% auto;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  animation: barSheen 1.2s linear infinite;
+}
+@keyframes barSheen { 0%{background-position:0% center;} 100%{background-position:200% center;} }
+
+/* ── Gears ──────────────────────────────────────── */
+.gears-container {
+  position: relative; width: 145px; height: 92px;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: gearsAppear 0.6s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+}
+@keyframes gearsAppear { from{opacity:0;transform:scale(0.7);} to{opacity:1;transform:scale(1);} }
+.gear-svg { position: absolute; transform-origin: 50% 50%; overflow: visible; }
+.gear-big { width: 92px; height: 92px; top: 0; left: 0; filter: drop-shadow(0 0 10px rgba(79,158,255,0.6)); animation: spinCW 4s linear infinite; }
+.gear-small { width: 62px; height: 62px; top: 15px; left: 69px; filter: drop-shadow(0 0 8px rgba(201,168,76,0.6)); animation: spinCCW 1.4s linear infinite; }
+@keyframes spinCW  { from{transform:rotate(0deg);}  to{transform:rotate(360deg);} }
+@keyframes spinCCW { from{transform:rotate(22.5deg);} to{transform:rotate(22.5deg - 360deg);} }
+
+/* ── Cursor trail ────────────────────────────────── */
+#cursor-trail { position: fixed; inset: 0; pointer-events: none; z-index: 8000; }
+
+/* ── Scroll reveal ───────────────────────────────── */
+.sr-hidden {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.sr-visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* ── Navbar ─────────────────────────────────────── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* ── Bento card hover effects ────────────────────── */
+.bento-card {
+  transition:
+    transform 0.32s cubic-bezier(0.22,1,0.36,1),
+    border-color 0.28s, box-shadow 0.28s !important;
+}
+
+/* ── Message card hover ──────────────────────────── */
+.message-card {
+  transition:
+    transform 0.3s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.3s !important;
+}
+
+/* ── Hero entrance animations ────────────────────── */
+.hero-eyebrow   { animation: fadeUp 0.7s 0.1s both; }
+.hero-title     { animation: fadeUp 0.8s 0.22s both !important; }
+.hero-tagline   { animation: fadeUp 0.7s 0.36s both; }
+.hero-desc      { animation: fadeUp 0.7s 0.48s both; }
+.hero-actions   { animation: fadeUp 0.7s 0.58s both; }
+.hero-stats-row { animation: fadeUp 0.7s 0.68s both; }
+.hero-cover-art { animation: fadeIn 1s 0.75s both; }
+
+@keyframes fadeUp  { from{opacity:0;transform:translateY(24px);}  to{opacity:1;transform:translateY(0);} }
+@keyframes fadeIn  { from{opacity:0;} to{opacity:1;} }
+
+body.preloading .hero-eyebrow,
+body.preloading .hero-title,
+body.preloading .hero-tagline,
+body.preloading .hero-desc,
+body.preloading .hero-actions,
+body.preloading .hero-stats-row,
+body.preloading .hero-cover-art { animation: none; opacity: 0; }
+
+body:not(.preloading) .hero-eyebrow   { animation: fadeUp 0.7s 0.05s both; }
+body:not(.preloading) .hero-title     { animation: fadeUp 0.8s 0.18s both !important; }
+body:not(.preloading) .hero-tagline   { animation: fadeUp 0.7s 0.30s both; }
+body:not(.preloading) .hero-desc      { animation: fadeUp 0.7s 0.42s both; }
+body:not(.preloading) .hero-actions   { animation: fadeUp 0.7s 0.52s both; }
+body:not(.preloading) .hero-stats-row { animation: fadeUp 0.7s 0.62s both; }
+body:not(.preloading) .hero-cover-art { animation: fadeIn 1s 0.70s both; }
+
+/* ── Nav CTA ─────────────────────────────────────── */
+.nav-cta { transition: transform 0.2s, background 0.2s, box-shadow 0.2s !important; }
+.nav-cta:hover { transform: scale(1.05) translateY(-1px) !important; }
+
+/* ── Sections position for canvas children ──────── */
+section { position: relative; }
+nav, footer { position: relative; z-index: 1; }
